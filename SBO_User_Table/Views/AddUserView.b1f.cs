@@ -87,6 +87,7 @@ namespace SBO_User_Table.Views
             UserController.AddUser(user);
             Form1.MatrixDataWrite();
             }
+            
     }
 
         
