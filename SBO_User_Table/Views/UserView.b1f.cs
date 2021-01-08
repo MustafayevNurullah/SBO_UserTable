@@ -19,7 +19,7 @@ namespace SBO_User_Table
         UserController UserController;
         Company oCompany;
         List<User> Users;
-        int SelectedRow;
+        int SelectedRow=0;
         public Form1()
         {
             Users = new List<User>();
@@ -84,11 +84,12 @@ namespace SBO_User_Table
         private void Button2_ClickBefore(object sboObject, SAPbouiCOM.SBOItemEventArg pVal, out bool BubbleEvent)
         {
             BubbleEvent = true;
-            if (pVal.Row != -1)
+            if (SelectedRow != 0)
             {
                 UserController.DeleteUser(Users[SelectedRow - 1].Id);
                 Users.RemoveAt(SelectedRow - 1);
                 Matrix0.DeleteRow(SelectedRow);
+                SelectedRow = 0;
             }
             else
             {
@@ -106,11 +107,12 @@ namespace SBO_User_Table
         private void Button1_ClickBefore(object sboObject, SAPbouiCOM.SBOItemEventArg pVal, out bool BubbleEvent)
         {
             BubbleEvent = true;
-            if(pVal.Row!=-1)
+            if(SelectedRow!=0)
             {
 
             UpdateUserView view = new UpdateUserView(Users[SelectedRow - 1], UserController, this);
             view.Show();
+                SelectedRow = 0;
             }
             else
             {
