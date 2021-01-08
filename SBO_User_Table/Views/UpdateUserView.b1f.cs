@@ -13,12 +13,12 @@ namespace SBO_User_Table.Views
     class UpdateUserView : UserFormBase
     {
         UserController usercontroller;
-        Form1 form1;
+        UserView userview;
         User user;
-        public UpdateUserView(User user,UserController usercontroler,Form1 form1)
+        public UpdateUserView(User user,UserController usercontroler,UserView userview)
         {
             this.usercontroller = usercontroler;
-            this.form1 = form1;
+            this.userview = userview;
             NameTb.Value = user.Name;
             SurnameTb.Value = user.Surname;
             FatherNameTb.Value = user.Fathername;
@@ -95,7 +95,9 @@ namespace SBO_User_Table.Views
                 user.Company = CompanyTb.Value;
                 user.Phone = CompanyTb.Value;
                 usercontroller.UpdateUser(user);
-                form1.MatrixDataWrite();
+                userview.MatrixDataWrite();
+                MessageBox.Show("User update successfully");
+
             }
 
         }

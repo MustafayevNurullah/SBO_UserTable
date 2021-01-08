@@ -11,13 +11,13 @@ using System.Windows.Forms;
 namespace SBO_User_Table.Views
 {
     [FormAttribute("SBO_User_Table.Views.Form2", "Views/AddUserView.b1f")]
-    class Form2 : UserFormBase
+    class AddUserView : UserFormBase
     {
         UserController UserController;
-        Form1 Form1;
-        public Form2(UserController usercontroller,Form1 form1 )
+        UserView userview;
+        public AddUserView(UserController usercontroller,UserView userview )
         {
-            this.Form1 = form1;
+            this.userview = userview;
             this.UserController = usercontroller;
         }
 
@@ -74,6 +74,8 @@ namespace SBO_User_Table.Views
             if (Name.Value == "" || Surname.Value == "" || FatherName.Value == "" || Address.Value == "" || Company.Value == "" || Phone.Value == "")
             {
                 MessageBox.Show("Enter the text");
+
+               
             }
             else
             {
@@ -85,7 +87,8 @@ namespace SBO_User_Table.Views
             user.Company = Company.Value;
             user.Phone = Company.Value;
             UserController.AddUser(user);
-            Form1.MatrixDataWrite();
+            userview.MatrixDataWrite();
+                MessageBox.Show("User added successfully");
             }
             
     }

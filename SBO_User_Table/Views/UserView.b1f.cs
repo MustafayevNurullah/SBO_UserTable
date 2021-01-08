@@ -13,14 +13,14 @@ using SBO_User_Table.Views;
 namespace SBO_User_Table
 {
     [FormAttribute("SBO_User_Table.Form1", "Views/UserView.b1f")]
-    class Form1 : UserFormBase
+    class UserView : UserFormBase
     {
 
         UserController UserController;
         Company oCompany;
         List<User> Users;
         int SelectedRow=0;
-        public Form1()
+        public UserView()
         {
             Users = new List<User>();
             oCompany = new Company();
@@ -76,7 +76,7 @@ namespace SBO_User_Table
         private void Button0_ClickBefore(object sboObject, SAPbouiCOM.SBOItemEventArg pVal, out bool BubbleEvent)
         {
             BubbleEvent = true;
-            Form2 form2 = new Form2(UserController,this);
+            AddUserView form2 = new AddUserView(UserController,this);
             form2.Show();
             
         }

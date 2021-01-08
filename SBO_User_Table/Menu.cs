@@ -63,7 +63,7 @@ namespace SBO_User_Table
             {
                 if (pVal.BeforeAction && pVal.MenuUID == "SBO_User_Table.Form1")
                 {
-                    Form1 activeForm = new Form1();
+                    UserView activeForm = new UserView();
                     activeForm.Show();
                 }
             }
